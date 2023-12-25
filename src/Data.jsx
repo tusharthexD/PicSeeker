@@ -31,11 +31,9 @@ export default function Data() {
       })
         .then((dataResult) => {
           return dataResult.json();
-          
         })
         .then((res) => {
           setResource(res);
-          console.log(res);
         });
     } catch (error) {
       console.log("Error occurs");
@@ -50,15 +48,11 @@ export default function Data() {
     setQuery(e.target.value);
   }
   function favourite(id) {
-    console.log(id);
     setFavId((prevVal) => {
       return [...prevVal, id];
     });
   }
   function removePhoto(id) {
-    console.log("tjis id id " + id);
-    console.log(favId);
-
     setFavId((prevVal) => {
       return prevVal.filter((items) => {
         return items !== id;
@@ -97,10 +91,9 @@ export default function Data() {
       <div className="Searchbar">
         <input value={query} onChange={queryChange}></input>
 
-          <IconButton>
-            <SearchIcon className="SearchIcon" />
-          </IconButton>
-       
+        <IconButton>
+          <SearchIcon className="SearchIcon" />
+        </IconButton>
       </div>
       {resource.total_results > 30 ? (
         <div id="nextPage">
